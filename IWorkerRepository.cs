@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EntityFrameworkWeb
 {
-	public interface IWorkerRepository<Worker>
+	public interface IWorkerRepository : IDisposable
+
 	{
 	        IEnumerable<Worker> GetWorkers();
 		Worker GetWorkerById(int id);
