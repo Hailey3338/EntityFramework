@@ -3,40 +3,62 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EntityFrameworkWeb
 {
-	public class WorkerRepository : IWorkerRepository<Worker>
+	public class WorkerRepository : IWorkerRepository, IDisposable
 	{
-	   Model1 _context;
+	   /*Model1 _context;
 	   public WorkerRepository()
 	   {
 	      _context = new Model1();
-	   }
-	   public IEnumerable<Worker> List
+	   }*/
+	   private XingEntities _context;
+	   public WorkerRepository(XingEntities context)
 	   {
-	      get 
-		  {
-		     return _context.Workers;
-		  }
+	      this.context = _context;
 	   }
-	   public void Add(Worker entity)
+	   public IEnumerable<Worker> GetWorkers()
+	   {
+	      return _context.Workers.ToList();
+	   }
+	   public void AddWorker(Worker entity)
 	   {
 	      _context.Workers.Add(entity);
-		  _context.SaveChanges();
+	      _context.SaveChanges();
 	   }
-	   public void Delete(int id)
+	   public void DeleteWorker(int id)
 	   {
 	      var entity = _context.Worker.Find(id);
 	      _context.Worker.Remove(entity);
 		  _context.SaveChanges();
 	   }
-	   public void Update(Worker entity)
+	   public void UpdateWorker(Worker entity)
 	   {
 	      _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
 		  _context.SaveChanges();
 	   }
 	   public Worker GetById(int id)
 	   {
-	      var result = (from r in _context.Worker where r.WorkerID = id select r).FirstOrDefault();
+	      Worker result = (from r in _context.Worker where r.WorkerID = id select r).FirstOrDefault();
 		  return result;
 	   }
+	   private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
 	}
 }
