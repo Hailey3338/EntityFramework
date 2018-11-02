@@ -10,5 +10,6 @@ namespace EntityFrameworkWeb
 		IQueryable<Worker> SearchFor(Express<Func<worker.bool>>predicate);
 		IQueryable<Worker> GetAll();
 		Worker GetById(int WorkerID);
+		void SaveChanges();
 	}
 }
