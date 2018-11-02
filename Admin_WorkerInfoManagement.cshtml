@@ -1,0 +1,91 @@
+@model WebApplication4.Users
+
+
+
+@{
+
+    ViewBag.Title = "WorkerInfo";
+
+    Layout = "~/Views/Shared/_adminIndexPage.cshtml";
+
+}
+
+
+
+<h2>WorkerInfo</h2>
+
+<dt>
+
+    @Html.DisplayNameFor(model => model.WorkerName)
+
+</dt>
+
+
+
+<dd>
+
+    @Html.DisplayFor(model => model.WorkerName)
+
+</dd>
+
+
+
+<dt>
+
+    @Html.DisplayNameFor(model => model.Email)
+
+</dt>
+
+
+
+<dd>
+
+    @Html.DisplayFor(model => model.Email)
+
+</dd>
+
+
+
+<dt>
+
+    @Html.DisplayNameFor(model => model.Tel)
+
+</dt>
+
+
+
+<dd>
+
+    @Html.DisplayFor(model => model.Tel)
+
+</dd>
+
+
+
+<dt>
+
+    @Html.DisplayNameFor(model => model.Address)
+
+</dt>
+
+
+
+<dd>
+
+    @Html.DisplayFor(model => model.Address)
+
+</dd>
+
+
+
+        </dl>
+
+    </div>
+
+<p>
+
+    @Html.ActionLink("Delete", "Delete", new { WorkerID = @Session["WorkerID"] }) |
+
+    @Html.ActionLink("Back to index", "Index")
+
+</p>
