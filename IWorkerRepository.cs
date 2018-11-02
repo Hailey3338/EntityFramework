@@ -3,12 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EntityFrameworkWeb
 {
-	public interface IWorkerRepository<Worker> where Worker : class
+	public interface IWorkerRepository<Worker>
 	{
+	        IEnumerable<Worker> List {get;}
 		Worker GetById(int id);
-		IQueryable<Worker> GetAll();
-		void Insert(Worker worker);
-		void Delete(Worker worker);
+		/*IQueryable<Worker> GetAll();*/
+		void Insert(Worker entity);
+		void Delete(Worker entity);
+		void Update(Worker entity);
 		void SaveChanges();
 	}
 }
