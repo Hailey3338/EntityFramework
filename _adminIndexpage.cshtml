@@ -1,0 +1,56 @@
+@{
+
+    Layout = null;
+
+}
+
+
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>_adminIndexPage</title>
+
+</head>
+
+<body>
+
+    <div>
+
+        <nav class="navigation">
+
+            <ul>
+
+                <li>@Html.ActionLink("Worker Info Management", "WorkerInfoManagement")</li>
+                <li>@Html.ActionLink("Logout","Logout")</li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+    <div class="container body-content">
+
+        @RenderBody()
+
+        <hr />
+
+        <footer>
+
+            <p>&copy; @DateTime.Now.Year - Meine ASP.NET Worker Working Time Management-Anwendung</p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
