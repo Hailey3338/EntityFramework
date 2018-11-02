@@ -5,12 +5,12 @@ namespace EntityFrameworkWeb
 {
 	public interface IWorkerRepository<Worker>
 	{
-	        IEnumerable<Worker> List {get;}
-		Worker GetById(int id);
+	        IEnumerable<Worker> GetWorkers();
+		Worker GetWorkerById(int id);
 		/*IQueryable<Worker> GetAll();*/
-		void Insert(Worker entity);
-		void Delete(Worker entity);
-		void Update(Worker entity);
+		void InsertWorker(Worker entity);
+		void DeleteWorker(Worker entity);
+		void UpdateWorker(Worker entity);
 		void SaveChanges();
 	}
 }
