@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EntityFrameworkWeb
 {
-	public partial class XingContext: DbContext
+	public partial class XingEntities: DbContext
 	{
 	public XingEntities()
 	   : base("name=XingEntities")
